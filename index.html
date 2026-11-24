@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#030509" />
+  <title>Khat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Serif+Devanagari:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <aside class="panel" aria-label="Player">
+      <div class="card">
+        <figure class="art" id="art">
+          <img id="artwork" src="assets/khat-artwork.jpg" alt="Khat artwork" draggable="false" />
+          <figcaption class="art-missing">assets/khat-artwork.jpg</figcaption>
+        </figure>
+
+        <div class="info">
+          <div class="meta">
+            <h1 class="title" id="title">Khat</h1>
+            <p class="artist" id="artist"></p>
+          </div>
+
+          <div class="transport">
+            <button class="play" id="play" type="button" aria-label="Play">
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.8v12.4a.6.6 0 0 0 .92.5l9.6-6.2a.6.6 0 0 0 0-1L9.42 5.3a.6.6 0 0 0-.92.5Z" /></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5.5" width="3.2" height="13" rx="1" /><rect x="13.8" y="5.5" width="3.2" height="13" rx="1" /></svg>
+            </button>
+            <div class="timeline">
+              <input class="range progress" id="progress" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek" />
+              <div class="times"><span id="current">0:00</span><span id="duration">0:00</span></div>
+            </div>
+          </div>
+
+          <div class="volume">
+            <button class="mute" id="mute" type="button" aria-label="Mute">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3l4-3.5v12l-4-3.5H4z" /><path class="wave" d="M15 9.2a4 4 0 0 1 0 5.6M17.4 7a7 7 0 0 1 0 10" /><path class="cross" d="M15.5 9.5l5 5m0-5-5 5" /></svg>
+            </button>
+            <input class="range vol" id="volume" type="range" min="0" max="1" step="0.01" value="0.85" aria-label="Volume" />
+          </div>
+        </div>
+      </div>
+      <p class="status" id="status" role="status" hidden></p>
+    </aside>
+
+    <section class="stage" id="stage" aria-label="Lyric constellation">
+      <canvas id="sky"></canvas>
+      <p class="hint" id="hint">press play</p>
+    </section>
+  </main>
+
+  <audio id="audio" src="assets/khat-audio.mp3" preload="auto"></audio>
+
+  <script src="lyrics.js"></script>
+  <script src="constellation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
